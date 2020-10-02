@@ -7,3 +7,27 @@ In diesem Projekt wird Lombok eingesetzt. Aus diesem Grund muss in der IDE das e
 # Created by Sina Wittkamp, Luca Sahlman and Timo Reitmann
 # Forked By Wesson Snyder
 
+# Die 12 Faktoren
+1. Faktor One Codebase
+    Done
+2. Dependency Management
+    Done
+3. Build, Release, Run
+
+4. Configuration
+
+5. Logs
+
+6. Disposability
+
+7. Backing Services
+
+8. Environmental Parity
+
+9. Administrative Processes
+
+10. Port Binding
+
+11. Process
+
+12. Concurrency
