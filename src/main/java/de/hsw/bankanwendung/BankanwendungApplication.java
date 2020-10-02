@@ -41,16 +41,12 @@ public class BankanwendungApplication {
 			this.buchungService = buchungService;
 		}
 
-		@Autowired
-		JedisConnectionFactory jedisConnectionFactory;
 
 		@Override
 		public void run(String... args) throws Exception {
 			// Leert den REDIS-Cache
 			log.info("Clearing REDIS cache");
-			try (RedisConnection j = jedisConnectionFactory.getConnection()) {
-				j.flushAll();
-			}
+
 
 			log.info("Successfully cleard REDIS cache");
 
