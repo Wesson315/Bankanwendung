@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-    mysql:
-        image: "mysql:latest"
-        build: "mysql"
+    mymysql:
+        image: "mymysql:latest"
+        build: "mymysql"
         restart: unless-stopped
         expose:
         - "3306"
@@ -10,22 +10,22 @@ services:
         - "3306:3306"
         environment:
             MYSQL_ROOT_PASSWORD: mymysqlroot
-            MYSQL_DATABASE: myapp
+            MYSQL_DATABASE: bankanwendung
             MYSQL_USER: Baenker
             MYSQL_PASSWORD: SuperSecure1337
-#        volumes:
-#            - ${MYSQLDATADIR:-$PWD/mysql/mysqldata}:/var/lib/mysql
-    redis:
-        image: "redis:latest"
-        build: "redis"
+        volumes:
+            - ./mymysql/data:/var/lib/mysql
+    myredis:
+        image: "myredis:latest"
+        build: "myredis"
         restart: unless-stopped
         expose:
         - "6379"
         ports:
         - "6379:6379"
         depends_on:
-        - mysql
-    myapp:
+        - mymysql
+    bankanwendung:
         image: "bankanwendung:latest"
         build: "bankanwendung"
         restart: unless-stopped
@@ -34,5 +34,5 @@ services:
         ports:
         - "8080:8080"
         depends_on:
-        - redis
-        - mysql
+        - myredis
+        - mymysql
