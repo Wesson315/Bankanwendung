@@ -1,0 +1,747 @@
+{
+	"info": {
+		"_postman_id": "1931d041-e531-4f5e-b491-2d125e049847",
+		"name": "Bankanwendung",
+		"description": "Bankanwendung Datenbank Aufgabe B",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Kunden getten",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Alle Konten einblenden bei allen Kunden",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde?expand=konto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "konto"
+						}
+					]
+				},
+				"description": "Konten expanded"
+			},
+			"response": []
+		},
+		{
+			"name": "Kunde 1 getten",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde",
+						"1"
+					]
+				},
+				"description": "Konten des Kunde 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Konten von Kunde 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde/1/konten",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde",
+						"1",
+						"konten"
+					]
+				},
+				"description": "Konten des Kunde 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Neuen Kunden erstellen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"vorname\": \"max\",\n  \"nachname\": \"Mustermann\",\n  \"adresse\": \"Musterstraße 42\",\n  \"geburtsdatum\": \"2000-02-29\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Kunde erstellen"
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden getten - erstellen funktioniert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Neuen Kunden löschen",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde",
+						"3"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden anlegen mit Put - ID wird nicht erneut genutzt",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"vorname\": \"max\",\n  \"nachname\": \"Mustermann\",\n  \"adresse\": \"Musterstraße 42\",\n  \"geburtsdatum\": \"2000-02-29\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden getten - erstellen mit Put funktioniert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Erstellten Kunden bearbeiten - ID im Body",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"4\",\n  \"vorname\": \"max\",\n  \"nachname\": \"Mustermann\",\n  \"adresse\": \"Dorfstraße 24\",\n  \"geburtsdatum\": \"2000-02-29\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden getten - bearbeiten funktioniert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden bearbeiten - ID in dem Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"vorname\": \"max\",\n  \"nachname\": \"Mustermann\",\n  \"adresse\": \"Dorfstraße 42\",\n  \"geburtsdatum\": \"2000-02-29\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/kunde/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden bearbeiten - Body und Request stimmen nicht ueberein",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"4\",\n  \"vorname\": \"max\",\n  \"nachname\": \"Mustermann\",\n  \"adresse\": \"Dorfstraße 42\",\n  \"geburtsdatum\": \"2000-02-29\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/kunde/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden getten",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde?expand=konto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "konto"
+						}
+					]
+				},
+				"description": "Alle Kunden"
+			},
+			"response": []
+		},
+		{
+			"name": "Neues Konto für Kunde 2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"iban\": \"DE28500105171693549948\",\n    \"kontostand\": 100.11,\n    \"kunde\": {\n        \"id\": 2,\n        \"path\": \"/kunde/2\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/konto/DE28500105171693549948",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE28500105171693549948"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Erstelltes Konto getten (Cache Demo)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto/DE28500105171693549948",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE28500105171693549948"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redis Cache anschauen, leeren, DB anschauen",
+			"request": {
+				"method": "VIEW",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Erstelltes Konto getten (DB)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto/DE28500105171693549948",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE28500105171693549948"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kunden getten - erstelltes Konto wird angezeigt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/kunde?expand=konto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"kunde"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "konto"
+						}
+					]
+				},
+				"description": "Konten expanded"
+			},
+			"response": []
+		},
+		{
+			"name": "Erstelltes Konto löschen",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto/DE28500105171693549948",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE28500105171693549948"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Konto mit Buchungen erstellen",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"iban\": \"DE85500105178956293942\",\n    \"kontostand\": 6000.0,\n    \"kunde\": {\n        \"id\": 2\n    },\n    \"buchungen\": [\n        {\n            \"betrag\": 1.20,\n            \"verwendungszweck\": \"Zubuchung-Updated2\"\n        },\n        {\n            \"betrag\": 11000.0,\n            \"verwendungszweck\": \"Zubuchung-Neu\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/konto/mit-buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"mit-buchung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Konto getten - Buchungen werden angezeigt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto/DE85500105178956293942?expand=buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE85500105178956293942"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "buchung"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Neue Buchung erstellen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"betrag\": \"42\",\n    \"verwendungszweck\": \"Antworten auf alles finden\",\n    \"konto\": \"DE85500105178956293942\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"buchung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Konto getten - Buchung wird angezeigt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto/DE85500105178956293942?expand=buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE85500105178956293942"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "buchung"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buchung bearbeiten (Betrag)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"5\",\n    \"betrag\": \"420\",\n    \"verwendungszweck\": \"Antworten auf alles finden\",\n    \"konto\": \"DE85500105178956293942\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"buchung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Konto getten - Buchung bearbeiten hat funktioniert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto/DE85500105178956293942?expand=buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto",
+						"DE85500105178956293942"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "buchung"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ueberweisung",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ibanSender\": \"DE85500105178956293942\",\n    \"ibanEmpfaenger\": \"DE52500105179745278665\",\n    \"betrag\": \"14\",\n    \"verwendungszweck\": \"Kasten Bier\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/ueberweisung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"ueberweisung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resultate der Ueberweisung",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto?expand=buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "buchung"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ueberweisung Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ibanSender\": \"DE85500105178956293942\",\n    \"ibanEmpfaenger\": \"CH7789144165138766264\",\n    \"betrag\": \"10000\",\n    \"verwendungszweck\": \"Pack mal bitte mein Geld in die Waschmaschine\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1338/ueberweisung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"ueberweisung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resultate der Steuerhinterziehung",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1338/konto?expand=buchung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1338",
+					"path": [
+						"konto"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "buchung"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
