@@ -6,4 +6,3 @@ In diesem Projekt wird Lombok eingesetzt. Aus diesem Grund muss in der IDE das e
 
 # Created by Sina Wittkamp, Luca Sahlman and Timo Reitmann
 # Forked By Wesson Snyder
-
